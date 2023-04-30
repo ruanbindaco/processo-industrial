@@ -1,0 +1,47 @@
+{
+  "processes": [
+    {
+      "id": "f63985c782854d6799f4d74ccbce6c44",
+      "company_id": "096ed33573e34e518d7d52bb95dba48f",
+      "family_id": "770bc3281a2148bb88b7765a2cd31339",
+      "list_emails_responsables": [
+        "dev@futurai.com.br"
+      ],
+      "process_name": "Filtro Linha 10"
+    },
+    {
+      "id": "2e3dcebc606b4908a4591c3c7207df42",
+      "company_id": "096ed33573e34e518d7d52bb95dba48f",
+      "family_id": "770bc3281a2148bb88b7765a2cd31339",
+      "list_emails_responsables": [
+        "dev@futurai.com.br"
+      ],
+      "process_name": "Filtro Linha 1"
+    },
+    {
+      "id": "cb57daa3696b4072b3dcd28f30793e06",
+      "company_id": "096ed33573e34e518d7d52bb95dba48f",
+      "family_id": "8475cf6d8a4040e3bbc2415bb7c0c7b5",
+      "list_emails_responsables": [
+        "dev@futurai.com.br"
+      ],
+      "process_name": "Depurador 5"
+    }
+  ],
+  "families": [
+    {
+      "id": "770bc3281a2148bb88b7765a2cd31339",
+      "family_name": "Filtros"
+    },
+    {
+      "id": "8475cf6d8a4040e3bbc2415bb7c0c7b5",
+      "family_name": "Depuradores"
+    }
+  ],
+  "companies": [
+    {
+      "id": "096ed33573e34e518d7d52bb95dba48f",
+      "company_name": "Futurai"
+    }
+  ]
+}

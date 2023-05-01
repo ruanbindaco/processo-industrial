@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.container .initialBlock {
+    max-width: 1070px;
+    width: 100%;
+}
+
+.container .initialBlock .titlePage{
+    text-align: center;
+    padding-top: 32px;
+    color: rgba(15, 41, 58, .8);
+}
+
+.container .cardBlock {
+padding: 60px 0;
+}
+
+.container .initialBlock .cardBlock .processCard {
+    background-color: #CECFD1;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+.container .initialBlock .cardBlock .processCard :last-child {
+    margin-bottom: 0;
+}
+
+.container .initialBlock .cardBlock .processCard .name {
+
+}
+.container .initialBlock .cardBlock .processCard .family {
+    display: flex;
+    gap: 3px;
+}

@@ -1,3 +1,4 @@
+import "./styles.css";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { Link } from "react-router-dom";
@@ -22,34 +23,37 @@ export default function Home() {
   };
 
   return (
-    <div>
-      <div className="row">Home</div>
-      <div>
-        <a href="/process">Cria novo processo</a>
+    <div className="container">
+      <div className="initialBlock">
         <div>
-          {processes.map((process) => {
-            return (
-              <div key={process.id}>
-                <div>
-                  <div>Nome do Processo: {process.process_name}</div>
+          <h1 className="titlePage">Processos</h1>
+          <div className="cardBlock">
+            {processes.map((process) => {
+              return (
+                <div key={process.id} className="processCard">
                   <div>
-                    <p>
-                      Nome da Familia:{" "}
-                      {families.map((family) =>
-                        process.family_id === family.id
-                          ? family.family_name
-                          : ""
-                      )}
-                    </p>
+                    <div className="name">Processo: {process.process_name}</div>
+                    <div className="family">
+                      <p>Familia:</p>
+                      <p>
+                        {families.map((family) =>
+                          process.family_id === family.id
+                            ? family.family_name
+                            : ""
+                        )}
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <Link to={`process/${process.id}`}>Editar</Link>
+                    <button onClick={() => deleteProcess(process.id)}>
+                      Deletar
+                    </button>
                   </div>
                 </div>
-                <Link to={`process/${process.id}`}>Editar</Link>
-                <button onClick={() => deleteProcess(process.id)}>
-                  Deletar
-                </button>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

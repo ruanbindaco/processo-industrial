@@ -1,0 +1,133 @@
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(15, 41, 58, .8);
+    padding-top: 20px;
+    padding: 0 30px;
+  }
+
+  .navbar .logo{
+    width: 170px;
+    height: 70px;
+    margin-right: 25px;
+  }
+  
+  .navbar header{
+    display: flex;
+    align-items: center;
+    max-width: 1215px;
+    width: 100%;
+  }
+  
+  .navbar .navbar-item {
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #FFF;
+    font-weight: 400;
+  }
+  
+  .process{
+    text-decoration: none;
+    cursor: pointer;
+    padding: 5px 14px;
+    color: #FFF;
+    border-radius: 4px;
+  }
+  
+  @media (max-width: 834px) and (min-width: 480px) {
+    .navbar {
+      padding: 0 10px;
+    }
+  }
+  @media (max-width: 480px) {
+    
+    .sidebar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: #000;
+      z-index: 2;
+    }
+  
+    .modal-bg {
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      position: fixed;
+      height: 100%;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+  
+    .sidebar-content {
+      position: fixed;
+      overflow-y: scroll;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      background: #FFF;
+      width: 60%;
+      z-index: 2;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+  
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 25px 5px 0;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 26px;
+    }
+  
+    .sidebar-header .close {
+      width: 15px;
+      height: 15px;
+    }
+  
+    .sidebar-items {
+      display: flex;
+      flex-direction: column;
+      padding: 0 25px;
+      gap: 20px;
+      font-size: 20px;
+    }
+  
+    .bar img {
+      width: 32px;
+      height: 25px;
+    }
+  
+    .fadeIn {
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+  
+    .fadeOut {
+      animation: fadeOut 0.4s ease-out forwards;
+    }
+  
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+  
+      100% {
+        opacity: 1;
+      }
+    }
+  
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+  
+      100% {
+        opacity: 0;
+      }
+    }
+  }

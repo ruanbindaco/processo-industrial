@@ -25,7 +25,7 @@ export default function Form() {
       .post("/processes", {
         list_emails_responsables: [emailList],
         process_name: nameProcess,
-        family: nameFamily,
+        family_id: nameFamily,
       })
       .then(() => {
         clearFrom();
@@ -39,27 +39,15 @@ export default function Form() {
     setNameFamily("");
   };
 
+  const changeFamily = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setNameFamily(e.currentTarget.value);
+  };
+
   return (
     <div>
       <div className="row">Formulário</div>
       <form>
         <div>
-          <div>
-            <InputBar
-              disabled={true}
-              size={"100%"}
-              label={"ID empresa"}
-              type={"text"}
-              name={"idEmpresa"}
-            />
-            <InputBar
-              disabled={true}
-              size={"100%"}
-              label={"ID do processo"}
-              type={"text"}
-              name={"idProcesso"}
-            />
-          </div>
           <div>
             <InputBar
               disabled={false}
@@ -85,10 +73,9 @@ export default function Form() {
             />
           </div>
           <div>
-            <select name="familyOption">
+            <select name="familyOption" onChange={(e) => changeFamily(e)}>
               <option value="">Escolha sua familia</option>
               {getFamilies.map((family) => {
-                // precisa passar esse value do option para o setState
                 return (
                   <option value={family.id} key={family.id}>
                     {family.family_name}

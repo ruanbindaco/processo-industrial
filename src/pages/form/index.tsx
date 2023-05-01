@@ -5,13 +5,14 @@ import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { FaSave } from "react-icons/fa";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { FamiliesProps } from "../../interfaces";
 
 export default function Form() {
   const [nameProcess, setNameProcess] = useState("");
   const [emailList, setEmailList] = useState("");
   const [nameFamily, setNameFamily] = useState("");
   const navigate = useNavigate();
-  const [getFamilies, setGetFamilies] = useState<any[]>([]);
+  const [getFamilies, setGetFamilies] = useState<FamiliesProps[]>([]);
   const windowType = useWindowSize();
 
   useEffect(() => {

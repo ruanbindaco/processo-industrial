@@ -2,6 +2,7 @@ import "./styles.css";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { Link } from "react-router-dom";
+import { FaTrashAlt } from "react-icons/fa";
 
 export default function Home() {
   const [processes, setProcesses] = useState<any[]>([]);
@@ -44,11 +45,12 @@ export default function Home() {
                       </p>
                     </div>
                   </div>
-                  <div>
+                  <div className="optionBlock">
                     <Link to={`process/${process.id}`}>Editar</Link>
-                    <button onClick={() => deleteProcess(process.id)}>
-                      Deletar
-                    </button>
+                    <FaTrashAlt
+                      onClick={() => deleteProcess(process.id)}
+                      cursor={"pointer"}
+                    />
                   </div>
                 </div>
               );

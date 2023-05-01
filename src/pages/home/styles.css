@@ -1,6 +1,12 @@
+a {
+    text-decoration: none;
+    color: rgba(15, 41, 58, 1);
+}
+
 .container {
     display: flex;
     justify-content: center;
+    padding: 0 60px;
 }
 
 .container .initialBlock {
@@ -11,29 +17,60 @@
 .container .initialBlock .titlePage{
     text-align: center;
     padding-top: 32px;
-    color: rgba(15, 41, 58, .8);
+    color: rgba(15, 41, 58, 1);
 }
 
 .container .cardBlock {
-padding: 60px 0;
+    padding: 32px 0;
 }
 
 .container .initialBlock .cardBlock .processCard {
     background-color: #CECFD1;
     display: flex;
     justify-content: space-between;
-    padding: 20px 10px;
+    padding: 20px 15px;
     border-radius: 10px;
     margin-bottom: 5px;
 }
+
+.container .initialBlock .cardBlock .processCard .optionBlock {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .container .initialBlock .cardBlock .processCard :last-child {
     margin-bottom: 0;
 }
 
-.container .initialBlock .cardBlock .processCard .name {
-
+.container .initialBlock .cardBlock .processCard .name,
+.container .initialBlock .cardBlock .processCard .family {
+    font-size: 20px;
+    color: rgba(15, 41, 58, 1);
 }
 .container .initialBlock .cardBlock .processCard .family {
     display: flex;
     gap: 3px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .container .initialBlock .cardBlock .processCard {
+        background-color: #CECFD1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: space-between;
+        padding: 20px 10px;
+        border-radius: 10px;
+        margin-bottom: 5px;
+    }
+
+    .container .initialBlock .cardBlock .processCard .optionBlock {
+        display: flex;
+        justify-content: flex-end;
+    }
 }

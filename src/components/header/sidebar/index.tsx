@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDelayUnmount } from "../../../hooks/useDelayUnmount";
+import { FaTimes } from "react-icons/fa";
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,11 +48,7 @@ function Sidebar() {
                   />
                 </div>
                 <div onClick={() => toggleSidebar()}>
-                  <img
-                    src={require("../../../assets/closeButton.png")}
-                    alt="Logo"
-                    className="close"
-                  />
+                  <FaTimes size={20} />
                 </div>
               </div>
               <div className="sidebar-items">

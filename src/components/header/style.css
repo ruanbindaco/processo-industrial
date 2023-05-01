@@ -47,8 +47,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 20px;
-      background-color: #000;
+      padding: 22.5px 20px;
+      background-color: rgba(15, 41, 58, .8);
       z-index: 2;
     }
   
@@ -71,16 +71,16 @@
       bottom: 0;
       left: 0;
       background: #FFF;
-      width: 60%;
+      width: 65%;
       z-index: 2;
       animation: fadeIn 0.5s ease-in-out;
     }
   
     .sidebar-header {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
-      padding: 0 25px 5px 0;
+      padding: 20px 25px 0 20px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       margin-bottom: 26px;
     }
@@ -104,7 +104,7 @@
     }
   
     .fadeIn {
-      animation: fadeIn 0.4s ease-out forwards;
+      animation: fadeIn 0.4s ease-out;
     }
   
     .fadeOut {

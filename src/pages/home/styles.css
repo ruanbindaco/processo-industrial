@@ -3,6 +3,54 @@ a {
     color: rgba(15, 41, 58, 1);
 }
 
+.modal {
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    height: 100%;
+    animation: fadeIn 0.5s ease-in-out;
+
+}
+
+.modal .modal-content {
+    position: fixed;
+    top: 40%;
+    bottom: 0;
+    left: 40%;
+    z-index: 2;
+}
+
+.modal .modal-content .items {
+    background-color: #FFF;
+    padding: 16px 10px;
+    border-radius: 10px;
+}
+
+.modal .modal-content .items {
+    padding: 20px 20px 15px;
+}
+
+.modal .modal-content .items .buttonBlock {
+    display: flex;
+    justify-content: center;
+    padding-top: 16px;
+    gap: 30px;
+}
+
+.modal .buttonBlock .btn {
+    padding: 12px;
+    background: rgba(15, 41, 58, .9);
+	color: #FFFFFF;
+    border: none;
+    font-size: 15px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
 .loading {
     text-align: center;
     font-size: 32px;
@@ -61,6 +109,11 @@ a {
     gap: 3px;
 }
 
+@media (max-width: 834px) and (min-width: 480px) {
+    .modal .modal-content {
+        left: 32%;
+    }
+}
 @media (max-width: 480px) {
     .container {
         padding: 0 16px;
@@ -80,5 +133,9 @@ a {
     .container .initialBlock .cardBlock .processCard .optionBlock {
         display: flex;
         justify-content: flex-end;
+    }
+
+    .modal .modal-content {
+        left: 16%;
     }
 }

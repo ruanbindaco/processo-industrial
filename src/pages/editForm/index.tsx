@@ -18,6 +18,7 @@ export default function EditForm() {
   });
   const [familySelected, setFamilySelected] = useState();
   const [getFamilies, setFamilies] = useState<FamiliesProps[]>([]);
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   const windowType = useWindowSize();
 
@@ -36,8 +37,7 @@ export default function EditForm() {
 
   function uploadProcess(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-    api.put(`processes/${id}`, data);
-    navigate("/");
+    api.put(`processes/${id}`, data).then(() => setShowModal(true));
   }
 
   const nameChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -54,6 +54,20 @@ export default function EditForm() {
 
   return (
     <>
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <div className="items">
+              <div className="title">Processo editado com sucesso!</div>
+              <div className="buttonBlock">
+                <button className="btn" onClick={() => navigate("/")}>
+                  Fechar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       {loading ? (
         <h1 className="loading">Carregando...</h1>
       ) : (

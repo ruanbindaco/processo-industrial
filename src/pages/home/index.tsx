@@ -8,6 +8,8 @@ import api from "../../services/api";
 
 const Home = (props: any) => {
   const [getFamily, setFamily] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [savedId, setId] = useState("");
   useEffect(() => {
     props.fetchProcesses();
     async function loadFamily() {
@@ -18,11 +20,38 @@ const Home = (props: any) => {
   }, []);
 
   const deleteProcess = (id: string) => {
-    api.delete(`processes/${id}`).then(() => window.location.reload());
+    setShowModal(true);
+    setId(id);
+  };
+
+  const handleClose = () => {
+    setShowModal(false);
+  };
+  const handleDeleteItem = () => {
+    console.log("ok");
+    api.delete(`processes/${savedId}`).then(() => window.location.reload());
+    setShowModal(false);
   };
 
   return (
     <>
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <div className="items">
+              <div className="title">Deseja excluir o processo?</div>
+              <div className="buttonBlock">
+                <button className="btn" onClick={handleDeleteItem}>
+                  Excluir
+                </button>
+                <button className="btn" onClick={handleClose}>
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       <div>
         {props.processList.loading === false ? (
           <div className="container">

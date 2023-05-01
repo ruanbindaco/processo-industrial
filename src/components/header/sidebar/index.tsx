@@ -53,7 +53,7 @@ function Sidebar() {
               </div>
               <div className="sidebar-items">
                 <div onClick={() => toggleSidebar()}>
-                  <Link to="/">Meus Processos</Link>
+                  <Link to="/">Processos</Link>
                 </div>
                 <div onClick={() => toggleSidebar()}>
                   <Link to="/process">Novo Processo</Link>

@@ -10,31 +10,13 @@ export interface FamiliesProps {
   family_name: string,
   
   }
-export interface CompaniesProps {
+interface CompaniesProps {
   id: string,
   company_name: string,
 }
 
 export interface AllProcessProps {
-  processes: [
-      {
-      id: string,
-      company_id: string,
-      family_id: string,
-      list_emails_responsables: [string],
-      process_name: string,
-      }
-    ],
-    families: [
-      {
-        id: string,
-        family_name: string,
-      }
-    ],
-    companies: [
-      {
-        id: string,
-        company_name: string,
-      }
-    ]
+    processes: ProcessProps[],
+    families: FamiliesProps[],
+    companies: CompaniesProps[]
 }

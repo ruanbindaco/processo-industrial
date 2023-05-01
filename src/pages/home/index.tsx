@@ -1,24 +1,20 @@
 import "./styles.css";
 import { useEffect, useState } from "react";
-import api from "../../services/api";
 import { Link } from "react-router-dom";
 import { FaTrashAlt } from "react-icons/fa";
+import { connect } from "react-redux";
+import { fetchProcessList } from "../../store/process/action";
+import api from "../../services/api";
 
-export default function Home() {
-  const [processes, setProcesses] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [families, setFamilies] = useState<any[]>([]);
-
+const Home = (props: any) => {
+  const [getFamily, setFamily] = useState([]);
   useEffect(() => {
-    async function loadProcess() {
-      const responseProcess = await api.get("processes");
-      const responseFamily = await api.get("families");
-      setLoading(false);
-      setProcesses(responseProcess.data);
-      setFamilies(responseFamily.data);
+    props.fetchProcesses();
+    async function loadFamily() {
+      const res = await api.get("families");
+      setFamily(res.data);
     }
-
-    loadProcess();
+    loadFamily();
   }, []);
 
   const deleteProcess = (id: string) => {
@@ -27,47 +23,67 @@ export default function Home() {
 
   return (
     <>
-      {loading ? (
-        <h1 className="loading">Carregando...</h1>
-      ) : (
-        <div className="container">
-          <div className="initialBlock">
-            <div>
-              <h1 className="titlePage">Processos</h1>
-              <div className="cardBlock">
-                {processes.map((process) => {
-                  return (
-                    <div key={process.id} className="processCard">
-                      <div>
-                        <div className="name">
-                          Processo: {process.process_name}
+      <div>
+        {props.processList.loading === false ? (
+          <div className="container">
+            <div className="initialBlock">
+              <div>
+                <h1 className="titlePage">Processos</h1>
+                <div className="cardBlock">
+                  {props.processList.data.map((process: any) => {
+                    return (
+                      <div key={process.id} className="processCard">
+                        <div>
+                          <div className="name">
+                            Processo: {process.process_name}
+                          </div>
+                          <div className="family">
+                            <p>Familia:</p>
+                            <p>
+                              {getFamily.map((family: any) => {
+                                return (
+                                  <div key={process.family_id}>
+                                    {family.id === process.family_id
+                                      ? family.family_name
+                                      : ""}
+                                  </div>
+                                );
+                              })}
+                            </p>
+                          </div>
                         </div>
-                        <div className="family">
-                          <p>Familia:</p>
-                          <p>
-                            {families.map((family) =>
-                              process.family_id === family.id
-                                ? family.family_name
-                                : ""
-                            )}
-                          </p>
+                        <div className="optionBlock">
+                          <Link to={`process/${process.id}`}>Editar</Link>
+                          <FaTrashAlt
+                            onClick={() => deleteProcess(process.id)}
+                            cursor={"pointer"}
+                          />
                         </div>
                       </div>
-                      <div className="optionBlock">
-                        <Link to={`process/${process.id}`}>Editar</Link>
-                        <FaTrashAlt
-                          onClick={() => deleteProcess(process.id)}
-                          cursor={"pointer"}
-                        />
-                      </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        ) : (
+          <h1 className="loading">Carregando...</h1>
+        )}
+      </div>
     </>
   );
-}
+};
+
+const mapStatetoprops = (state: any) => {
+  return {
+    processList: state.processList,
+  };
+};
+
+const mapDispatchtoprops = (dispatch: any) => {
+  return {
+    fetchProcesses: () => dispatch(fetchProcessList()),
+  };
+};
+
+export default connect(mapStatetoprops, mapDispatchtoprops)(Home);

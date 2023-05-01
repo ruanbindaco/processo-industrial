@@ -12,7 +12,7 @@ function Navbar() {
           />
         </Link>
         <Link className="navbar-item" to="/">
-          Meus Processos
+          Processos
         </Link>
         <Link className="process" to="/process">
           Novo Processo

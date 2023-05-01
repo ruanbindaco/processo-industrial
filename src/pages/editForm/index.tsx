@@ -41,7 +41,6 @@ export default function EditForm() {
   }
 
   const nameChange = (e: React.FormEvent<HTMLInputElement>) => {
-    console.log(e.currentTarget.value);
     setData({ ...data, process_name: e.currentTarget.value });
   };
 
@@ -60,7 +59,7 @@ export default function EditForm() {
       ) : (
         <div className="container">
           <form className="formBlock">
-            <div className="titlePage">Novo Processo</div>
+            <div className="titlePage">Editar Processo</div>
             <div className="inputBlock">
               <InputBar
                 disabled={false}
@@ -83,7 +82,7 @@ export default function EditForm() {
               <InputBar
                 disabled={false}
                 size={windowType === "mobile" ? "93%" : "90%"}
-                label={"Lista de email"}
+                label={"E-mail"}
                 type={"email"}
                 name={"email"}
                 value={data.list_emails_responsables}

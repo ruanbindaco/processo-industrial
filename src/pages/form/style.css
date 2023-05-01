@@ -1,0 +1,98 @@
+.formBlock {
+    margin: 100px 0;
+    padding: 20px;
+    max-width: 1070px;
+    width: 100%;
+    background-color: #CECFD1;
+    border-radius: 10px;
+}
+
+.formBlock .titlePage{
+    font-size: 32px;
+    color: rgba(15, 41, 58, 1);
+}
+
+.formBlock .inputBlock {
+    display: flex;
+    width: 100%;
+    gap: 25px;
+}
+
+.formBlock .inputBlock .input,
+.formBlock .selectBlock { 
+    display: flex;
+    flex-direction: column;
+}
+.formBlock .selectBlock .selectFamily {
+    padding: 10px;
+    border-radius: 10px;
+    width: 25%;
+    cursor: pointer;
+}
+
+.formBlock .buttonBlock {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 32px;
+    gap: 20px;
+}
+
+.formBlock .buttonBlock .btn {
+    padding: 16px;
+    background: rgba(15, 41, 58, .9);
+	color: #FFFFFF;
+    border: none;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.formBlock .buttonBlock .btnSave{
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 834px) and (min-width: 480px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    .formBlock {
+        margin: 50px 0;
+    }
+
+    .formBlock .inputBlock  {
+        gap: 10px;
+    }
+
+    .formBlock .selectBlock .selectFamily {
+        width: 40%;
+    }
+    
+    .formBlock .buttonBlock .btn {
+        padding: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .formBlock {
+        margin: 50px 0;
+    }
+
+    .formBlock .titlePage{
+        padding-bottom: 32px;
+    }
+
+    .formBlock .inputBlock  {
+        gap: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .formBlock .selectBlock .selectFamily {
+        width: 100%;
+    }
+
+    .formBlock .buttonBlock .btn {
+        padding: 10px;
+    }
+}

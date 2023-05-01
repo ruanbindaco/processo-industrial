@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body {
+    background-color: #98c0d6;
+}
+
 #root {
     background-color: #98c0d6;
     height: 100vh;

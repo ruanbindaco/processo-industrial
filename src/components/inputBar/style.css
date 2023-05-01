@@ -1,0 +1,18 @@
+.inputComponent {
+    max-width: 100%;
+    width: 100%;
+    padding: 32px 0;
+}
+
+.inputComponent .input {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+@media (max-width: 480px) {
+    .inputComponent {
+        max-width: 100%;
+        width: 100%;
+        padding: 8px 0;
+    }
+}

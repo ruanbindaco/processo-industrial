@@ -6,12 +6,14 @@ import { FaTrashAlt } from "react-icons/fa";
 
 export default function Home() {
   const [processes, setProcesses] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
   const [families, setFamilies] = useState<any[]>([]);
 
   useEffect(() => {
     async function loadProcess() {
       const responseProcess = await api.get("processes");
       const responseFamily = await api.get("families");
+      setLoading(false);
       setProcesses(responseProcess.data);
       setFamilies(responseFamily.data);
     }
@@ -24,40 +26,48 @@ export default function Home() {
   };
 
   return (
-    <div className="container">
-      <div className="initialBlock">
-        <div>
-          <h1 className="titlePage">Processos</h1>
-          <div className="cardBlock">
-            {processes.map((process) => {
-              return (
-                <div key={process.id} className="processCard">
-                  <div>
-                    <div className="name">Processo: {process.process_name}</div>
-                    <div className="family">
-                      <p>Familia:</p>
-                      <p>
-                        {families.map((family) =>
-                          process.family_id === family.id
-                            ? family.family_name
-                            : ""
-                        )}
-                      </p>
+    <>
+      {loading ? (
+        <h1 className="loading">Carregando...</h1>
+      ) : (
+        <div className="container">
+          <div className="initialBlock">
+            <div>
+              <h1 className="titlePage">Processos</h1>
+              <div className="cardBlock">
+                {processes.map((process) => {
+                  return (
+                    <div key={process.id} className="processCard">
+                      <div>
+                        <div className="name">
+                          Processo: {process.process_name}
+                        </div>
+                        <div className="family">
+                          <p>Familia:</p>
+                          <p>
+                            {families.map((family) =>
+                              process.family_id === family.id
+                                ? family.family_name
+                                : ""
+                            )}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="optionBlock">
+                        <Link to={`process/${process.id}`}>Editar</Link>
+                        <FaTrashAlt
+                          onClick={() => deleteProcess(process.id)}
+                          cursor={"pointer"}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="optionBlock">
-                    <Link to={`process/${process.id}`}>Editar</Link>
-                    <FaTrashAlt
-                      onClick={() => deleteProcess(process.id)}
-                      cursor={"pointer"}
-                    />
-                  </div>
-                </div>
-              );
-            })}
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }

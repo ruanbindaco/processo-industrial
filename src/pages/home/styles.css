@@ -3,6 +3,13 @@ a {
     color: rgba(15, 41, 58, 1);
 }
 
+.loading {
+    text-align: center;
+    font-size: 32px;
+    padding-top: 32px;
+    color: rgba(15, 41, 58, 1);
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -16,6 +23,7 @@ a {
 
 .container .initialBlock .titlePage{
     text-align: center;
+    font-size: 32px;
     padding-top: 32px;
     color: rgba(15, 41, 58, 1);
 }

@@ -1,3 +1,5 @@
+import "./style.css";
+
 export interface InputBarProps {
   size: string;
   label: string;
@@ -20,12 +22,11 @@ export default function InputBar({
 }) {
   return (
     <>
-      <div className="">
-        <label className="" htmlFor="input-nome">
+      <div className="inputComponent">
+        <label className="labelText" htmlFor="input-nome">
           {label}
         </label>
         <input
-          className=""
           style={{ width: `${size}` }}
           placeholder={placeholder}
           type={type}
